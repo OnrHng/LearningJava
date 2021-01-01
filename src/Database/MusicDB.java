@@ -3,7 +3,9 @@ package Database;
 import Database.DBConfig.Artist;
 import Database.DBConfig.DBConfig;
 import Database.DBConfig.DBConfigWithEnum;
+import Database.DBConfig.SongArtist;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MusicDB {
@@ -37,6 +39,26 @@ public class MusicDB {
 
     for (String album : albumsForArtist) {
       System.out.println(album);
+    }
+
+    dbConfig.querySongsMetaData();
+
+    // see count of table e.g songs
+    int count = dbConfig.getCount(DBConfig.TABLE_SONGS);
+    System.out.printf("Count of Table %d \n" , count);
+
+    dbConfig.createViewForSongArtists();
+
+    List<SongArtist> songArtists = dbConfig.querySongInfoView("She's On Fire");
+    if(songArtists.isEmpty()) {
+      System.out.println("Couldn't find the artist for the song");
+      return;
+    }
+
+    for(SongArtist artist : songArtists) {
+      System.out.println("FROM VIEW - Artist name = " + artist.getArtistName() +
+              " Album name = " + artist.getAlbumName() +
+              " Track number = " + artist.getTrack());
     }
 
     dbConfigWithEnum.close();
