@@ -7,6 +7,7 @@ import Database.DBConfig.SongArtist;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class MusicDB {
 
@@ -49,7 +50,15 @@ public class MusicDB {
 
     dbConfig.createViewForSongArtists();
 
-    List<SongArtist> songArtists = dbConfig.querySongInfoView("She's On Fire");
+    // prevent sql injection
+    // SELECT name, album, track FROM artist_list WHERE title = "Go Your Own Way" or 1=1 or ""
+
+    // SELECT name, album, track FROM artist_list WHERE title = "Go Your Own Way or 1=1 or ""
+    Scanner scanner = new Scanner(System.in);
+    System.out.println("Enter a song title: ");
+    String title = scanner.nextLine();
+
+    List<SongArtist> songArtists = dbConfig.querySongInfoView(title);
     if(songArtists.isEmpty()) {
       System.out.println("Couldn't find the artist for the song");
       return;

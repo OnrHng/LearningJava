@@ -1,0 +1,30 @@
+DATABASE TRANSACTIONs
+
+iki senario dan biri: Bir bankada A kullanicisi B kullanicisina para gondermek istiyor.
+    bu durumda database lerde iki islem yapilacak:
+        - A kullanicinin balance guncellenecek
+        - B kullanicisinin balance guncelllenecek
+
+    bu iki islem gerceklesirken A daki basarili, B dekiler ise basarisiz olma durumda ortaya koyulacak tavirlardan biri de
+    A daki islemleri de roll back yapmak veya B de tamamlanmayan islemleri kaydetmek gerekir. Sorun couzlunce bu handel
+    edilmesi icin. Bu ornekde Databaselerin transaction charakteristiklerini ACID comnpilant larina gore olmalidir.
+
+    1- ATOMICITY: This relates to what we've just discussed. If a series of SQL statements change the database, then either
+    all the changes are committed or none of them are.
+    2- Consistency (tutarlilik): Before a transaction begins, the database is in a valid state. When it completes, the database is still
+    valid state.
+    3- ISOLATION : Until the changes committed by a transaction are completed, they wont be visible to other connections.
+    Transactions can't depend on each other.
+    4- DURABILTIY: Once the changes performed by a transaction are committed to the database, they're permanent. If an application
+    then crashes or the database server goes down (in the case of client/server db like MySQL), the changes made by the
+    transaction are still there when the application runs again, or db comes back up.
+
+Essentially transactions ensure the integrity of the data within a database.
+
+Transaction with JDBC
+    We call methods in the Connection class to execute transcation-related commands. We perform the following steps:
+        1- Trun off the default auto commit behaviour by callling Connection.setAutoCommit(false)
+        2- Perform the SQL operations that form the transaction
+        3- If there are no errors, call Connection.commit() to commit the changes. If there are errors, call
+        Connection.rollBack() to rollback any changes made since the transaction began.
+        4- Turn default auto-commit behaviour back on by calling setAutoCommit(true).

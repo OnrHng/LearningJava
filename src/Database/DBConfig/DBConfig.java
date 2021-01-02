@@ -66,11 +66,19 @@ public class DBConfig {
           COLUMN_SONG_ALBUM + ", " + COLUMN_SONG_TRACK + " FROM " + TABLE_ARTIST_SONG_VIEW +
           " WHERE " + COLUMN_SONG_TITLE + " = \"";
 
+  public static final String QUERY_VIEW_SONG_INFO_PREP = "SELECT " + COLUMN_ARTIST_NAME + ", " +
+          COLUMN_SONG_ALBUM + ", " + COLUMN_SONG_TRACK + " FROM " + TABLE_ARTIST_SONG_VIEW +
+          " WHERE " + COLUMN_SONG_TITLE + " = ?";
+
+  // SELECT name, album, track FROM artist_list WHERE title = ?
+
   private Connection connection;
+  private PreparedStatement querySongInfoView;
 
   public boolean connectDB() {
     try {
       connection = DriverManager.getConnection(CONNECTION_STR);
+      querySongInfoView = connection.prepareStatement(QUERY_VIEW_SONG_INFO_PREP);
       return true;
     } catch (SQLException e) {
       e.printStackTrace();
@@ -80,7 +88,10 @@ public class DBConfig {
 
   public void closeDBConnection() {
     try {
+      if(querySongInfoView != null) querySongInfoView.close();
+
       if (connection != null) connection.close();
+
     }catch (SQLException e) {
       e.printStackTrace();
     }
@@ -202,17 +213,18 @@ public class DBConfig {
   }
 
   public List<SongArtist> querySongInfoView(String title) {
-    StringBuilder sb = new StringBuilder(QUERY_VIEW_SONG_INFO);
-    sb.append(title);
-    sb.append("\"");
+//    StringBuilder sb = new StringBuilder(QUERY_VIEW_SONG_INFO);
+//    sb.append(title);
+//    sb.append("\"");
+//
+//    System.out.println(sb.toString());
 
-    System.out.println(sb.toString());
-
-    try (Statement statement = connection.createStatement();
-         ResultSet results = statement.executeQuery(sb.toString())) {
+    try {
+      querySongInfoView.setString(1, title);
+      ResultSet results = querySongInfoView.executeQuery();
 
       List<SongArtist> songArtists = new ArrayList<>();
-      while(results.next()) {
+      while (results.next()) {
         SongArtist songArtist = new SongArtist();
         songArtist.setArtistName(results.getString(1));
         songArtist.setAlbumName(results.getString(2));
@@ -222,7 +234,7 @@ public class DBConfig {
 
       return songArtists;
 
-    } catch(SQLException e) {
+    } catch (SQLException e) {
       System.out.println("Query failed: " + e.getMessage());
       return null;
     }
