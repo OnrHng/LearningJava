@@ -70,6 +70,8 @@ public class MusicDB {
               " Track number = " + artist.getTrack());
     }
 
+    dbConfig.insertSong("Seni sevdim", "Sila", "Yeni Dunya",3);
+
     dbConfigWithEnum.close();
     dbConfig.closeDBConnection();
     System.out.println("ClOSED DB CONNECTION");
