@@ -1,4 +1,4 @@
-package OOP2CompositionEncapsulationPolymorphism.Composition;
+package OOP2.Composition;
 
 public class Resolution {
   private int width;

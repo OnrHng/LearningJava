@@ -1,0 +1,13 @@
+Encapsulation is the mechanism that allows you to restrict access to certain components in the objects
+    that you are creating.
+
+
+We protect the members of class, and some methods from external access. We are doing that to prevent unauthorized set up
+or access.
+ Bu hadise olay class instance variable lari etrafinda donuyor. Encapsulation da temel prensip bu memberlarin private
+ olmasi ve disaridan etkilere ve disari yan etkilere kapatilmasi olayidir. Bu en kullanisli yontemdir.
+
+ Public olan bir field in disarindan erisilmesi ve degistirilmesi veya onun ozelliklerinin degistirilmesi sonucunda
+ hem class guvenligi disarida da bug problemleri artacaktir.
+
+ you can see rpinter example same package

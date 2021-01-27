@@ -1,0 +1,12 @@
+by pass reference vs by pass value
+
+primitive types such as int double boolean is value types
+
+and the other types such as an array a string is reference types
+
+reference types get the reference/address not hold Object. when you update a reference type and if there is copy of
+this reference , it is automatically gonna change.
+
+
+=============================================O==========================================
+

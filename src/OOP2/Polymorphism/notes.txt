@@ -1,0 +1,5 @@
+Polymorphism is in OOP a mechanism a that allows actions to act differently based on the actual action is being
+performed on.
+
+if you got a base class and some other subclass from inherited this class, and you have a got a method,
+you can override thats mehtods , you can iterate given the base class type . That is the polymorphism
