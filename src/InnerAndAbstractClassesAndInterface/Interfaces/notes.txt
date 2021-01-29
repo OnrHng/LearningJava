@@ -1,0 +1,3 @@
+Interfaces
+
+to provide common method whose are used several classses. Subclass should implement all method.

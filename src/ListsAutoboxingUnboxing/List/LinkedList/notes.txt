@@ -1,0 +1,7 @@
+LinkedList
+
+it hold such address of the next item. In some concept it is so useful to manipulate all list.
+faster and safer
+
+linked listein icerisinde gezinmek icin iterator class i olusturulmustur.
+her seferinde .next() bakilarak loop devam ettirilir//

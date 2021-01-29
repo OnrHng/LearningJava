@@ -1,0 +1,8 @@
+Inner Class
+
+in Java you can write a non static class inside the another class. like nested classses.
+nested classa ulasmak icin ilk once outer class created etmen gerekir.
+
+inner Classin iki cesidi vardir. birisi local inner class like is writen such as method.
+the other type of inner class is anonymous class. Those have not a name and dont need to create
+sperately.

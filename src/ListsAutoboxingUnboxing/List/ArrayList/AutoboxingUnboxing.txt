@@ -1,0 +1,18 @@
+AUTOBOXING vs UNBOXING
+
+Autoboxing :
+    when we are creating or converting an integer , we are taking the primitive type and going to the object wrapper.
+    ArrayList<Integer> intArr = new ArrayList<>();
+    for (int i = 0; i<10 ; i++) {
+        intArr.add(Integer.valueOf(i));
+    }
+
+Unboxing:
+    is where we are taking it from the class or from the object wrapper and converting it back to a primitive type.
+
+    for (int i = 0; i<10 ; i++) {
+        System.out.println(i + " --> "+ intArr.get(i).intValue());
+    }
+
+Integer myIntValue = 56; // Integer.valueOf(56);  both are same. Autoboxing
+int myInt = myIntValue;  // myIntValue.intValue();  unboxing
