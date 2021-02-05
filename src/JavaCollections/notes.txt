@@ -1,0 +1,19 @@
+In Java has List interface, the arrayList and LinkedinList classes implements from List interface
+
+Collections framework includes things like sets, Maps, Trees, Ques. Top Level of the framework is Collections class.
+In class provided static mehtods that allowed to use other mechanism
+
+Collection mechanism include much more generics power. In this link you can see https://docs.oracle.com/javase/tutorial/collections/interfaces/index.html
+    hierarchy. You can change all subclass with parent class.
+
+    Binary Search in Collection: there is a good possibilty which can use binary search with Comparable Interface.
+    therefore you should implement compareTo method and check if it same. Or you can use Collections.binarySearch()
+    method.
+
+==== Collection List Methods ====
+copy list
+reverse
+shuffle
+min
+max
+swap

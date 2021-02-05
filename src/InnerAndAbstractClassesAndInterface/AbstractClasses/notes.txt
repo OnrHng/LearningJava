@@ -1,0 +1,17 @@
+Abstraction
+
+    we are focusing what needs to be done, not on the how it to be done. Interface is also litte abstract. Java da
+    abstract yapma yontemlerinden biridir interface,
+
+    interface ile abstract class farklari
+        interface methodlarini implement etmek zorundasin. abstract class sana icindeki metodlari provide eder.
+        absctract class tan extend edilmis bir classi bir kez daha abstract edip onun icinde abstract
+        methodlar yazabiliriz.
+
+        abstract classlardan instance olusturulamaz.
+        interface : dont have member variable. Just all member variables should be public static final like constract
+            variable with static scope. Because non static variables require an instance and cant instantiate an interface
+            also cannot have a constructors. all methods in the interface automatically public. all method should be like
+            abstract should be implement.
+        abstract : have member variables that are inherited, have constructor. abstract class methods has any visibility.
+            all method should not be abstract and also should not implement
