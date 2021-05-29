@@ -17,3 +17,12 @@ shuffle
 min
 max
 swap
+
+======= MAP =========
+The Map interface replace absolute dictionaries abstract class that replaces it maps.key to values. Each key has a
+    value. In Map all keys should be Unique . If try to put some value in the same key then it is over written.
+
+    we can loop with map.keySet() or map.values()
+
+    HashMap (Linked HashMap)
+    TreeMap that implements the sorted map interface
