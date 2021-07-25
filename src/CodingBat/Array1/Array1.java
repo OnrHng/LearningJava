@@ -6,14 +6,16 @@ public class Array1 {
 
 
   public static void main(String[] args) {
-    int re = 11/2;
-    int mod = 11%2;
-    System.out.println(re);
-    System.out.println(mod);
+//    int re = 11/2;
+//    int mod = 11%2;
+//    System.out.println(re);
+//    System.out.println(mod);
+//
+//    int[] result = middleWay2(new int[]{1,2,3,4,5,6,67,7,8,9,10,11});
+//    System.out.println(Arrays.toString(result));
 
-    int[] result = middleWay2(new int[]{1,2,3,4,5,6,67,7,8,9,10,11});
-    System.out.println(Arrays.toString(result));
-
+    int[] result2 = make2(new int[] {}, new int[] {});
+    System.out.println(result2);
   }
 
   public boolean firstLast6(int[] nums) {
@@ -118,13 +120,74 @@ public class Array1 {
   }
 
 
+  public int[] makeMiddle(int[] nums) {
+    int[] result = new int[2];
+    if (nums.length % 2 == 0){
+      result[0] = nums[nums.length /2 - 1];
+      result[1] = nums[nums.length /2 ];
+    }
+    return result;
+  }
+
+
+  public int[] plusTwo(int[] a, int[] b) {
+
+    return new int[] {a[0], a[1], b[0], b[1]};
+
+  }
+
+  public int[] swapEnds(int[] nums) {
+    int first = nums[0];
+    nums[0] = nums[nums.length-1];
+    nums[nums.length-1] = first;
+    return nums;
+  }
+
+  public int[] midThree(int[] nums) {
+    //([8, 6, 7, 5, 3, 0, 9]) → [7, 5, 3]
+//    int[] result = new int[3];
+//    result[0] = nums[nums.length / 2 - 1];
+//    result[1] = nums[nums.length / 2];
+//    result[2] = nums[nums.length / 2 + 1];
+//    return result;
+
+
+    int mid = nums.length / 2;
+    return new int[] {nums[mid-1], nums[mid], nums[mid+1]} ;
+
+  }
+
+
+  public int maxTriple(int[] nums) {
+    // first middle last
+    return Math.max(nums[0], Math.max(nums[nums.length / 2], nums[nums.length-1]));
+
+  }
+
+  public int[] frontPiece(int[] nums) {
+//    if(nums.length < 2) {
+//      return nums;
+//    } else {
+//      return new int[] {nums[0], nums[1]};
+//    }
+    return nums.length < 2 ? nums : new int[] {nums[0], nums[1]};
+  }
+
+
+  public static int[] make2(int[] a, int[] b) {
+    int[] result = new int[2];
+
+    if(a.length>=2){
+      return new int[] {a[0], a[1]};
+    }else if (a.length==1){
+      return new int[] {a[0], b[0]};
+    }else {
+      return new int[] {b[0], b[1]};
+    }
 
 
 
-
-
-
-
+  }
 
 
 
