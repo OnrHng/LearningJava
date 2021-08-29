@@ -15,7 +15,7 @@ public class Array1 {
 //    System.out.println(Arrays.toString(result));
 
     int[] result2 = make2(new int[] {}, new int[] {});
-    System.out.println(result2);
+    System.out.println(Arrays.toString(result2));
   }
 
   public boolean firstLast6(int[] nums) {
@@ -181,15 +181,25 @@ public class Array1 {
       return new int[] {a[0], a[1]};
     }else if (a.length==1){
       return new int[] {a[0], b[0]};
-    }else {
+    }else if (b.length>=2) {
       return new int[] {b[0], b[1]};
+    } else {
+      return new int[] {};
     }
-
-
 
   }
 
+  public int[] front11(int[] a, int[] b) {
 
-
+    if(a.length>0 && b.length > 0){
+      return new int[] {a[0], b[0]};
+    }else if (a.length==0 && b.length > 0){
+      return new int[] {b[0]};
+    }else if (b.length==0 && a.length > 0) {
+      return new int[] {a[0]};
+    } else {
+      return new int[] {};
+    }
+  }
 
 }
